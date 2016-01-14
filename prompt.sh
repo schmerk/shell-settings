@@ -14,6 +14,7 @@ fi
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
+color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -61,9 +62,11 @@ if [ -n "$color_prompt" ]; then
     # txtrst='\e[0m'    # Text Reset
 
     if [ -n "$enable_git" ]; then
-        PS1='\[\e[0;37m\][\[\e[0;34m\]\u\[\e[0;33m\]@\[\e[0;34m\]\h\[\e[0;37m\]] \[\e[0;32m\]\W\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[0;37m\]\$ '
+        PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]$(__git_ps1 " (%s)")\n\$ '
+        # PS1='\[\e[0;37m\][\[\e[0;34m\]\u\[\e[0;33m\]@\[\e[0;34m\]\h\[\e[0;37m\]] \[\e[0;32m\]\W\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[0;37m\]\$ '
     else
-        PS1='\[\e[0;37m\][\[\e[0;34m\]\u\[\e[0;33m\]@\[\e[0;34m\]\h\[\e[0;37m\]] \[\e[0;32m\]\W\[\e[0;37m\]\$ '
+        PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\n\$ '
+        #PS1='\[\e[0;37m\][\[\e[0;34m\]\u\[\e[0;33m\]@\[\e[0;34m\]\h\[\e[0;37m\]] \[\e[0;32m\]\W\[\e[0;37m\]\$ '
     fi
 else
     if [ -n "$enable_git" ]; then
