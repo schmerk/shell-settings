@@ -10,5 +10,5 @@ git config --global alias.co checkout
 git config --global alias.br branch
 git config --global alias.st status
 git config --global alias.up 'remote update --prune'
-git config --global alias.lol 'log --oneline --graph -- decorate'
+git config --global alias.lol 'log --oneline --graph --decorate'
 git config --global rebase.autosquash=true
